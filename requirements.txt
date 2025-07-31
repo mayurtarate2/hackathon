@@ -30,7 +30,7 @@ pydantic==2.11.7
 pydantic-core==2.33.2
 python-dotenv==1.0.1
 pandas==2.3.1
-numpy==2.3.1
+numpy==1.26.4
 
 # Security and authentication
 python-jose[cryptography]==3.3.0
