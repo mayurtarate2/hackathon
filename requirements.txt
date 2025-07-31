@@ -13,7 +13,6 @@ anyio==4.9.0
 openai==1.96.1
 
 # Vector database
-# (No explicit vector database dependency provided here)
 
 # Database (PostgreSQL)
 psycopg2-binary==2.9.9
@@ -24,7 +23,7 @@ python-email==0.0.1
 
 # NLP and text processing (optional, enhanced features)
 spacy==3.8.2
-# (Remember: Run "python -m spacy download en_core_web_sm" after installation)
+# Run: python -m spacy download en_core_web_sm
 
 # Data processing and utilities
 pydantic==2.11.7
@@ -47,7 +46,7 @@ black>=24.1.0,<26
 isort==5.13.2
 langchain-community>=0.0.34
 
-# Backward compatibility – Keeping existing working packages
+# Backward compatibility - keeping existing working packages
 accelerate==1.9.0
 certifi==2024.2.2
 charset-normalizer==3.3.2
@@ -61,8 +60,7 @@ idna==3.6
 Jinja2==3.1.6
 jiter==0.10.0
 MarkupSafe==3.0.2
-# IMPORTANT: unstructured v0.13.0 requires packaging==23.2 exactly.
-packaging==23.2
+packaging==25.0
 pathlib==1.0.1
 psutil==7.0.0
 python-dateutil==2.9.0.post0
@@ -73,7 +71,7 @@ tqdm==4.67.1
 pydot==4.0.1
 PyMuPDF==1.26.3
 PyMySQL==1.1.1
-# (Note: psycopg2-binary is already defined above)
+psycopg2-binary==2.9.9
 pyparsing==3.2.3
 pytz==2025.2
 pyxnat==1.6.3
