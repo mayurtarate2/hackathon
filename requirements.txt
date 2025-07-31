@@ -27,6 +27,7 @@ spacy==3.8.2
 
 # Data processing and utilities
 pydantic==2.11.7
+pydantic-core==2.33.2
 python-dotenv==1.0.1
 pandas==2.3.1
 numpy==2.3.1
@@ -62,7 +63,6 @@ MarkupSafe==3.0.2
 packaging==25.0
 pathlib==1.0.1
 psutil==7.0.0
-pydantic-core==2.34.0
 python-dateutil==2.9.0.post0
 PyYAML==6.0.2
 safetensors==0.5.3
