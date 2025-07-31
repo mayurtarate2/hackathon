@@ -60,7 +60,7 @@ idna==3.6
 Jinja2==3.1.6
 jiter==0.10.0
 MarkupSafe==3.0.2
-packaging==25.0
+packaging==23.2
 pathlib==1.0.1
 psutil==7.0.0
 python-dateutil==2.9.0.post0
