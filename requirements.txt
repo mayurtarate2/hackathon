@@ -78,7 +78,6 @@ tokenizers==0.21.0
 tqdm==4.67.1
 typing_extensions==4.12.2
 urllib3==2.3.0
-pydantic_core==2.33.2
 pydot==4.0.1
 PyMuPDF==1.26.3
 PyMySQL==1.1.1
