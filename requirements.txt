@@ -71,7 +71,6 @@ pyparsing==3.2.0
 python-dateutil==2.9.0.post0
 pytz==2025.1
 PyYAML==6.0.2
-requests==2.33.0
 safetensors==0.4.8
 six==1.17.0
 sniffio==1.4.0
