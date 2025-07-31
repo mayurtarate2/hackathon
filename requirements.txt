@@ -14,7 +14,7 @@ openai==1.96.1
 tiktoken==0.8.0
 
 # Vector database
-pinecone-client==5.3.1
+pinecone-client==2.2.4
 
 # Database (PostgreSQL)
 psycopg2-binary==2.9.9
