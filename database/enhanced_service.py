@@ -15,7 +15,7 @@ load_dotenv()
 
 # Try to import SQLAlchemy components
 try:
-    from sqlalchemy import create_engine, func, desc, asc
+    from sqlalchemy import create_engine, func, desc, asc, text
     from sqlalchemy.orm import sessionmaker, Session
     from sqlalchemy.exc import SQLAlchemyError
     from database.enhanced_models import (
@@ -62,7 +62,7 @@ class EnhancedDatabaseService:
             
             # Test connection
             with self.SessionLocal() as db:
-                db.execute("SELECT 1")
+                db.execute(text("SELECT 1"))
             
             return True
             

@@ -2,7 +2,7 @@
 
 import os
 from dotenv import load_dotenv
-import pinecone
+from pinecone import Pinecone, ServerlessSpec
 import os
 from document_pipeline.chunk_schema import DocumentChunk
 from concurrent.futures import ThreadPoolExecutor
@@ -22,17 +22,12 @@ class EnhancedVectorStore:
     """Enhanced vector store with improved search capabilities and query expansion."""
     
     def __init__(self):
-        pinecone.init(
-            api_key=os.getenv("PINECONE_API_KEY"),
-            environment=os.getenv("PINECONE_ENVIRONMENT")
-        )
-
-        self.index_name = os.getenv("PINECONE_INDEX")
-        self.index = pinecone.Index(self.index_name)
-
-        # Optional: Create index if not exists
-        if self.index_name not in pinecone.list_indexes():
-            pinecone.create_index(self.index_name, dimension=1536)
+        self.pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
+        self.index_name = os.getenv("PINECONE_INDEX", "hackathon-doc-index")
+        
+        # Initialize index
+        self._initialize_index()
+        self.index = self.pc.Index(self.index_name)
         
         # Query expansion terms for different domains
         self.domain_synonyms = {
