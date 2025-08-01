@@ -1,5 +1,5 @@
 # HackRX 6.0 Project - Docker Ignore File
-# Based on comprehensive codebase analysis
+# Carefully curated to avoid breaking Docker builds
 
 # =============================================================================
 # SECURITY CRITICAL - Environment & Secrets
@@ -10,6 +10,9 @@
 secrets.json
 config.json
 credentials.json
+*.key
+*.pem
+*.crt
 
 # =============================================================================
 # PYTHON & VIRTUAL ENVIRONMENTS
@@ -23,7 +26,7 @@ env.bak/
 venv.bak/
 .python-version
 
-# Python cache and compiled files
+# Python cache and compiled files (keep source code)
 __pycache__/
 *.py[cod]
 *$py.class
@@ -48,10 +51,11 @@ share/python-wheels/
 MANIFEST
 
 # =============================================================================
-# TESTING & DEVELOPMENT
+# TESTING & DEVELOPMENT (be selective)
 # =============================================================================
-# Test files (your test_api.py and any test directories)
+# Test files (but keep if they're needed for validation)
 test_api.py
+test_deployment.py
 tests/
 test/
 *_test.py
@@ -68,7 +72,7 @@ coverage.xml
 # =============================================================================
 # DATABASE & LOGS
 # =============================================================================
-# Local database files
+# Local database files (development only)
 *.db
 *.sqlite
 *.sqlite3
@@ -82,33 +86,38 @@ error.log
 access.log
 
 # =============================================================================
-# DEPLOYMENT & CI/CD
+# DEPLOYMENT & CI/CD (be very careful here)
 # =============================================================================
-# Deployment scripts (not needed in container)
+# Only exclude scripts that are definitely not needed
 deploy/
-scripts/
-*.sh
-!start.sh
 .github/
 .gitlab-ci.yml
 .travis.yml
 Jenkinsfile
 
+# Keep important shell scripts that might be needed
+# *.sh  # REMOVED - too broad, could exclude startup scripts
+!startup.sh
+!start.sh
+!activate_env.sh
+
 # Docker related
 .dockerignore
-Dockerfile*
-docker-compose*.yml
-.docker/
 
 # =============================================================================
-# DOCUMENTATION & GIT
+# DOCUMENTATION (keep selectively)
 # =============================================================================
-# Documentation
-README.md
-*.md
+# Keep important docs, exclude others
 docs/
 LICENSE
-*.txt
+# README.md  # REMOVED - might be needed
+# *.txt      # REMOVED - this was excluding requirements.txt!
+
+# Exclude specific non-essential text files
+CHANGELOG.txt
+HISTORY.txt
+AUTHORS.txt
+CONTRIBUTORS.txt
 
 # Git
 .git/
@@ -166,7 +175,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # =============================================================================
-# ML/AI MODEL FILES (if any large models are cached)
+# ML/AI MODEL FILES (exclude large cached models)
 # =============================================================================
 *.model
 *.pkl
@@ -175,7 +184,7 @@ models/
 .models/
 
 # =============================================================================
-# JUPYTER NOTEBOOKS
+# JUPYTER NOTEBOOKS (exclude development notebooks)
 # =============================================================================
 .ipynb_checkpoints/
 *.ipynb
@@ -188,12 +197,6 @@ models/
 dmypy.json
 .pyre/
 .pytype/
-
-# =============================================================================
-# SPACY MODELS (will be downloaded in container)
-# =============================================================================
-# Note: spaCy models will be downloaded during container build
-# so we don't need local spaCy model files
 
 # =============================================================================
 # PROJECT SPECIFIC EXCLUSIONS
