@@ -91,7 +91,7 @@ traits==7.0.2
 transformers==4.53.2
 trl==0.19.1
 typing-inspection==0.4.1
-typing_extensions==4.14.1
+typing_extensions==4.9.0
 tzdata==2025.2
 urllib3==2.5.0
 xxhash==3.5.0
